@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proč stojíš u ledničky? - Pracovní sešit | HEALLO®</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #4A1942;
+            --color-secondary: #FF9500;
+            --color-accent: #FFB4A2;
+            --color-bg: #FFF9F5;
+            --color-pink: #FFE5E0;
+            --color-text: #2D2D2D;
+            --color-text-light: #666;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: var(--color-text);
+            line-height: 1.6;
+            background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-pink) 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid var(--color-pink);
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--color-secondary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 12pt;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--color-primary);
+            margin: 15px 0;
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            color: var(--color-primary);
+            margin: 30px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--color-pink);
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: var(--color-primary);
+            margin: 20px 0 15px;
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            color: var(--color-secondary);
+            margin: 15px 0 10px;
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            margin: 40px 0;
+            padding: 30px;
+            background: var(--color-bg);
+            border-radius: 15px;
+        }
+
+        .section-intro {
+            background: linear-gradient(135deg, var(--color-pink) 0%, var(--color-accent) 100%);
+        }
+
+        /* ===== INPUTS ===== */
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 2px solid var(--color-pink);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 11pt;
+            transition: border-color 0.3s;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: var(--color-secondary);
+        }
+
+        textarea.input-field {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .input-label {
+            display: block;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        /* ===== CHECKBOXES ===== */
+        .checkbox-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .checkbox-item:hover {
+            background: rgba(255, 180, 162, 0.1);
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .checkbox-item label {
+            cursor: pointer;
+            flex: 1;
+        }
+
+        /* ===== BOXES ===== */
+        .box {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 2px solid var(--color-pink);
+        }
+
+        .quote-box {
+            background: var(--color-primary);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 30px 0;
+            font-style: italic;
+        }
+
+        /* ===== VOICE LIST ===== */
+        .voice-grid {
+            display: grid;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .voice-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid var(--color-secondary);
+        }
+
+        .voice-emoji {
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+
+        .voice-name {
+            font-weight: bold;
+            color: var(--color-primary);
+            font-size: 1.1rem;
+        }
+
+        .voice-desc {
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+            margin-top: 5px;
+        }
+
+        /* ===== MAP SECTION ===== */
+        .map-section {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 2px solid var(--color-accent);
+        }
+
+        /* ===== SOS GRID ===== */
+        .sos-grid {
+            display: grid;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .sos-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 3px solid var(--color-secondary);
+        }
+
+        .sos-voice {
+            font-weight: bold;
+            color: var(--color-primary);
+            margin-bottom: 5px;
+        }
+
+        .sos-response {
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn-print {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--color-secondary);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 20px 10px 20px 0;
+        }
+
+        .btn-print:hover {
+            background: #E68600;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 149, 0, 0.3);
+        }
+
+        .btn-print-secondary {
+            background: var(--color-primary);
+        }
+
+        .btn-print-secondary:hover {
+            background: #6B2461;
+        }
+
+        .print-section {
+            text-align: center;
+            padding: 30px;
+            background: var(--color-pink);
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+
+        /* ===== PROGRESS BAR ===== */
+        .progress-container {
+            position: sticky;
+            top: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--color-secondary) 0%, var(--color-accent) 100%);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        /* ===== DIVIDER ===== */
+        .divider {
+            border-top: 2px solid var(--color-pink);
+            margin: 30px 0;
+        }
+
+        /* ===== UTILITIES ===== */
+        .text-center { text-align: center; }
+        .text-small { font-size: 0.9rem; }
+        .text-italic { font-style: italic; }
+        .mt-20 { margin-top: 20px; }
+        .mb-20 { margin-bottom: 20px; }
+
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+
+            /* Hide UI elements when printing */
+            .progress-container,
+            .btn-print,
+            .print-section,
+            .no-print {
+                display: none !important;
+            }
+
+            .section {
+                page-break-inside: avoid;
+                background: white;
+            }
+
+            /* Print only specific sections */
+            body.print-lekce1 .section {
+                display: none;
+            }
+            body.print-lekce1 #intro,
+            body.print-lekce1 #hlasy,
+            body.print-lekce1 #lekce1 {
+                display: block !important;
+            }
+
+            body.print-lekce2 .section {
+                display: none;
+            }
+            body.print-lekce2 #lekce2-detstvo,
+            body.print-lekce2 #lekce2-dospelost {
+                display: block !important;
+            }
+
+            body.print-lekce3 .section {
+                display: none;
+            }
+            body.print-lekce3 #lekce3,
+            body.print-lekce3 #mapa1,
+            body.print-lekce3 #mapa2,
+            body.print-lekce3 #mapa3 {
+                display: block !important;
+            }
+
+            body.print-sos .section {
+                display: none;
+            }
+            body.print-sos #sos,
+            body.print-sos #bonus {
+                display: block !important;
+            }
+
+            /* Print all - hide only no-print elements */
+            body.print-all .section {
+                display: block !important;
+            }
+
+            * {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .btn-print {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- PROGRESS BAR -->
+        <div class="progress-container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <a href="index.html" style="color: var(--color-primary); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 5px;">
+                    ← Zpět na hlavní stránku
+                </a>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-weight: 600; color: var(--color-primary);">📊 Tvůj pokrok:</span>
+                <span id="progressPercent" style="font-size: 1.5rem; font-weight: 700; color: var(--color-secondary);">0%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <!-- HEADER -->
+        <div class="header">
+            <div class="badge">🎧 HEALLO® MINI</div>
+            <h1>PROČ STOJÍŠ U LEDNIČKY,<br>I KDYŽ NEJSI HLADOVÁ?</h1>
+            <p style="font-size: 1.2rem; color: var(--color-text-light);">Interaktivní pracovní sešit</p>
+            
+            <div style="margin-top: 30px;">
+                <p style="font-size: 1rem; margin-bottom: 10px;">Tento sešit patří:</p>
+                <input type="text" class="input-field" id="owner-name" placeholder="Tvoje jméno" style="max-width: 400px; margin: 0 auto;">
+            </div>
+        </div>
+
+        <!-- ÚVODNÍ SLOVO -->
+        <section class="section section-intro" id="intro">
+            <h2>VÍTEJ 🌸</h2>
+            
+            <p>Mám obrovskou radost, že jsi tady.</p>
+            
+            <p style="margin-top: 15px;">To, že jsi otevřela tento sešit, znamená, že jsi udělala něco nesmírně odvážného - rozhodla ses podívat se dovnitř.</p>
+            
+            <p style="margin-top: 15px;">Tento sešit je tvůj osobní průvodce. <strong>Všechno, co sem napíšeš, se uloží automaticky jen do tvého prohlížeče</strong> - nikdo jiný to neuvidí. Je to prostor jen pro tebe.</p>
+            
+            <p style="margin-top: 15px;">Prostor, kde můžeš být upřímná. Kde můžeš pojmenovat to, co dlouho mlčelo. Kde můžeš objevit hlasy, které tě ovládají - a naučit se s nimi mluvit.</p>
+            
+            <div class="box mt-20">
+                <h3>JAK PRACOVAT S TÍMTO SEŠITEM:</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="padding: 8px 0;">🎧 <strong>Pustit audio</strong> - Nech se vést nahrávkami</li>
+                    <li style="padding: 8px 0;">✍️ <strong>Psát upřímně</strong> - Buď upřímná k sobě</li>
+                    <li style="padding: 8px 0;">💝 <strong>Být laskavá</strong> - Není to o dokonalosti</li>
+                    <li style="padding: 8px 0;">🖨️ <strong>Tisknout po sekcích</strong> - Vytiskni si lekce postupně</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 16 HLASŮ - PŘEHLED -->
+        <section class="section" id="hlasy">
+            <h2>16 HLASŮ TVÉHO TĚLA</h2>
+            <p class="text-small text-italic mb-20">Rychlý přehled</p>
+            
+            <div class="voice-grid">
+                <div class="voice-card">
+                    <span class="voice-emoji">🌸</span>
+                    <span class="voice-name">UTĚŠITELKA</span>
+                    <p class="voice-desc">"Potřebuješ se uklidnit. Dej si něco dobrého."<br>→ Jídlo = útěcha od emocí</p>
+                </div>
+                
+                <div class="voice-card">
+                    <span class="voice-emoji">😴</span>
+                    <span class="voice-name">VYČERPANÁ</span>
+                    <p class="voice-desc">"Nemám sílu myslet. Potřebuju energii. Teď."<br>→ Cukr = rychlá energie při vyčerpání</p>
+                </div>
+                
+                <div class="voice-card">
+                    <span class="voice-emoji">💝</span>
+                    <span class="voice-name">OBĚTAVÁ</span>
+                    <p class="voice-desc">"Celý den jsem dávala všem. Tohle je jen pro mě."<br>→ Jídlo = jediná odměna za obětování se</p>
+                </div>
+                
+                <div class="voice-card">
+                    <span class="voice-emoji">⚪</span>
+                    <span class="voice-name">PERFEKCIONISTKA</span>
+                    <p class="voice-desc">"Už jsi to pokazila, tak je to jedno."<br>→ Buď dokonale nebo vůbec</p>
+                </div>
+                
+                <div class="voice-card">
+                    <span class="voice-emoji">🔥</span>
+                    <span class="voice-name">REBELKA</span>
+                    <p class="voice-desc">"Nikdo mi nebude říkat, co mám jíst!"<br>→ Vzdor proti jakékoliv kontrole</p>
+                </div>
+                
+                <div class="voice-card">
+                    <span class="voice-emoji">🏡</span>
+                    <span class="voice-name">NOSTALGIČKA</span>
+                    <p class="voice-desc">"Takhle to babička vždycky dělala."<br>→ Hledá lásku ve vzpomínkách na jídlo</p>
+                </div>
+                
+                <div class="voice-card">
+                    <span class="voice-emoji">🏋️</span>
+                    <span class="voice-name">KOMPENZÁTORKA</span>
+                    <p class="voice-desc">"Dneska jsem cvičila, tak si můžu dát."<br>→ Cvičení = povolenka k jídlu</p>
+                </div>
+                
+                <div class="voice-card">
+                    <span class="voice-emoji">👻</span>
+                    <span class="voice-name">NEVIDITELNÁ</span>
+                    <p class="voice-desc">"Nikdo to neuvidí."<br>→ Jí potají, ve studu</p>
+                </div>
+                
+                <div class="voice-card">
+                    <span class="voice-emoji">📊</span>
+                    <span class="voice-name">KALKULAČKA</span>
+                    <p class="voice-desc">"Ještě mám 300 kalorií, tak si můžu dát."<br>→ Excel místo intuice těla</p>
+                </div>
+                
+                <div class="voice-card">
+                    <span class="voice-emoji">👑</span>
+                    <span class="voice-name">CTNOSTNÁ</span>
+                    <p class="voice-desc">"Celý den jsem byla hodná, zasloužím si odměnu."<br>→ Jídlo jako odměna za poslušnost</p>
+                </div>
+                
+                <div class="voice-card">
+                    <span class="voice-emoji">👀</span>
+                    <span class="voice-name">SROVNÁVAČKA</span>
+                    <p class="voice-desc">"Ona si dává a je štíhlá, tak proč ne já?"<br>→ Porovnávání se s ostatními</p>
+                </div>
+                
+                <div class="voice-card">
+                    <span class="voice-emoji">🎂</span>
+                    <span class="voice-name">BABIČČINA DCERA</span>
+                    <p class="voice-desc">"To je naše tradice, tak to bylo vždycky."<br>→ Generační vzorce a kulturní tlak</p>
+                </div>
+                
+                <div class="voice-card">
+                    <span class="voice-emoji">🕳️</span>
+                    <span class="voice-name">PRÁZDNÁ</span>
+                    <p class="voice-desc">"Aspoň v tomhle mám radost."<br>→ Jídlo vyplňuje prázdnotu v životě</p>
+                </div>
+                
+                <div class="voice-card">
+                    <span class="voice-emoji">📅</span>
+                    <span class="voice-name">PONDĚLNÍ JÁ</span>
+                    <p class="voice-desc">"Od pondělí začnu, tak si teď ještě dám."<br>→ Žije v iluzi "od zítřka"</p>
+                </div>
+                
+                <div class="voice-card">
+                    <span class="voice-emoji">🎪</span>
+                    <span class="voice-name">SLAVNOSTNÍ</span>
+                    <p class="voice-desc">"Vánoce bez cukroví? To nejsou Vánoce!"<br>→ Jídlo = oslava/tradice/láska</p>
+                </div>
+                
+                <div class="voice-card">
+                    <span class="voice-emoji">🛡️</span>
+                    <span class="voice-name">OCHRÁNKYNĚ</span>
+                    <p class="voice-desc">"Tohle bolí, raději něco sním."<br>→ Chrání před nebezpečnými emocemi</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- LEKCE 1 -->
+        <section class="section" id="lekce1">
+            <h2>LEKCE 1: Jak poznat, který hlas mluví</h2>
+            
+            <!-- AUDIO TLAČÍTKO -->
+            <div style="background: var(--color-pink); padding: 20px; border-radius: 12px; margin: 20px 0; text-align: center;">
+                <p style="margin-bottom: 15px;"><strong>🎧 Nejdřív si pusť audio:</strong></p>
+                <!-- AUDIO LEKCE 1 -->
+                <a href="https://soundcloud.com/katerina-heallo/lekce-1-poznej-sve-hlasy/s-iATiLZlvKCz?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing&si=d34ef3af6edf42fca18d220e4a8be9cf" class="btn-print" style="display: inline-flex;" target="_blank">
+                    🎧 Poslechnout Lekci 1
+                </a>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <h3>CVIČENÍ: MÉ POSLEDNÍ CHUTĚ</h3>
+            <p>Vzpomeň si na svůj poslední moment, kdy jsi měla chuť na jídlo (ne hlad).</p>
+            
+            <label class="input-label">KDY TO BYLO?</label>
+            <input type="text" class="input-field" id="l1-kdy" placeholder="Den v týdnu, čas, situace...">
+            
+            <label class="input-label">CO SE PŘED TÍM DĚLO?</label>
+            <textarea class="input-field" id="l1-co-se-delo" placeholder="Co ses dělala? Jak ses cítila?"></textarea>
+            
+            <label class="input-label">JAKÝ HLAS JSI SLYŠELA?</label>
+            <textarea class="input-field" id="l1-jaky-hlas" placeholder="Jakou přesnou větu jsi slyšela v hlavě?"></textarea>
+            
+            <div class="divider"></div>
+            
+            <h3>KTERÉ VĚTY SLYŠÍM NEJČASTĚJI?</h3>
+            
+            <ul class="checkbox-list">
+                <li class="checkbox-item">
+                    <input type="checkbox" id="veta1">
+                    <label for="veta1">"Zasloužíš si to."</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="veta2">
+                    <label for="veta2">"Stejně jsi to už pokazila."</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="veta3">
+                    <label for="veta3">"Jen tentokrát."</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="veta4">
+                    <label for="veta4">"Zítra to vycvičím."</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="veta5">
+                    <label for="veta5">"Nikdo mi nebude říkat, co mám dělat."</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="veta6">
+                    <label for="veta6">"Nemám sílu na nic jiného."</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="veta7">
+                    <label for="veta7">"Celý den jsem dávala všem."</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="veta8">
+                    <label for="veta8">"Takhle to babička dělala."</label>
+                </li>
+            </ul>
+            
+            <label class="input-label">JINÉ VĚTY, CO SLYŠÍM:</label>
+            <textarea class="input-field" id="l1-jine-vety" placeholder="Napiš další věty, které slyšíš..."></textarea>
+            
+            <label class="input-label">POZNÁMKY Z LEKCE 1:</label>
+            <textarea class="input-field" id="l1-poznamky" placeholder="Co tě napadlo během lekce?"></textarea>
+        </section>
+
+        <!-- TLAČÍTKO TISK LEKCE 1 -->
+        <div class="print-section no-print">
+            <h3>✅ Dokončila jsi Lekci 1!</h3>
+            <p style="margin: 15px 0;">Chceš si vytisknout Lekci 1 s tvými odpověďmi?</p>
+            <button class="btn-print" onclick="printSection('lekce1')">
+                🖨️ Vytisknout Lekci 1
+            </button>
+        </div>
+
+        <!-- LEKCE 2 - DĚTSTVÍ -->
+        <section class="section" id="lekce2-detstvo">
+            <h2>LEKCE 2: Odkud tvoje hlasy přišly</h2>
+            
+            <!-- AUDIO TLAČÍTKO -->
+            <div style="background: var(--color-pink); padding: 20px; border-radius: 12px; margin: 20px 0; text-align: center;">
+                <p style="margin-bottom: 15px;"><strong>🎧 Nejdřív si pusť audio:</strong></p>
+                <!-- AUDIO LEKCE 2 -->
+                <a href="https://soundcloud.com/katerina-heallo/lekce-2-poznej-sve-hlasy/s-YFXU0kWbgjO?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing&si=8167e0be716442f3b802b8811200ccba" class="btn-print" style="display: inline-flex;" target="_blank">
+                    🎧 Poslechnout Lekci 2
+                </a>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <h3>ČÁST 1: DĚTSTVÍ</h3>
+            
+            <div class="map-section">
+                <h4>UTĚŠITELKA</h4>
+                <p class="text-small">Byl v mém dětství moment, kdy jídlo znamenalo útěchu?</p>
+                <textarea class="input-field" id="l2-utesitelka" placeholder="Kdo mi ho dával? Co se dělo?"></textarea>
+            </div>
+            
+            <div class="map-section">
+                <h4>NOSTALGIČKA</h4>
+                <p class="text-small">Jaká jídla pro mě v dětství znamenala lásku nebo bezpečí?</p>
+                <textarea class="input-field" id="l2-nostalgicka" placeholder="Kdo je vařil/pekl? Jak jsem se cítila?"></textarea>
+            </div>
+            
+            <div class="map-section">
+                <h4>OBĚTAVÁ</h4>
+                <p class="text-small">Viděla jsem ve své rodině ženu, která se rozdávala všem...</p>
+                <textarea class="input-field" id="l2-obetava" placeholder="Kdo to byl? Co jsem si o tom myslela?"></textarea>
+            </div>
+            
+            <label class="input-label">KDE TO CÍTÍM V TĚLE?</label>
+            <p class="text-small">Když si vzpomínáš na tyto momenty... co cítíš? Kde?</p>
+            <textarea class="input-field" id="l2-v-tele" placeholder="Bolest? Tíha? Stažení? Teplo? Kde to vnímáš?"></textarea>
+        </section>
+
+        <!-- LEKCE 2 - DOSPĚLOST -->
+        <section class="section" id="lekce2-dospelost">
+            <h3>ČÁST 2: DOSPĚLOST - TRAUMA</h3>
+            
+            <div class="map-section">
+                <h4>REBELKA</h4>
+                <p class="text-small">Kolik diet jsem zkusila? Co mi dělaly?</p>
+                <textarea class="input-field" id="l2-rebelka1" placeholder="Jaké diety? Jak jsem se cítila?"></textarea>
+                <p class="text-small" style="margin-top: 10px;">Kdy se ve mně narodil vzdor? První moment: "UŽ DOST"?</p>
+                <textarea class="input-field" id="l2-rebelka2" placeholder="První vzpoura?"></textarea>
+            </div>
+            
+            <div class="map-section">
+                <h4>PERFEKCIONISTKA</h4>
+                <p class="text-small">Kdy jsem poprvé cítila: "Už je to jedno, už jsem to pokazila"?</p>
+                <textarea class="input-field" id="l2-perfekcionistka" placeholder="První moment 'všechno nebo nic'?"></textarea>
+            </div>
+            
+            <div class="map-section">
+                <h4>VYČERPANÁ</h4>
+                <p class="text-small">Kdy začala moje únava? Co se tehdy dělo v mém životě?</p>
+                <textarea class="input-field" id="l2-vycerpana" placeholder="První vyhoření?"></textarea>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <label class="input-label">MOJE NEJVĚTŠÍ POZNÁNÍ Z LEKCE 2:</label>
+            <textarea class="input-field" id="l2-poznatni" placeholder="Co jsem objevila o sobě?"></textarea>
+            
+            <label class="input-label">JAK SE TEĎ CÍTÍM?</label>
+            <ul class="checkbox-list">
+                <li class="checkbox-item">
+                    <input type="checkbox" id="emoce1">
+                    <label for="emoce1">Uvolněná</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="emoce2">
+                    <label for="emoce2">Smutná</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="emoce3">
+                    <label for="emoce3">Naštvaná</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="emoce4">
+                    <label for="emoce4">Překvapená</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="emoce5">
+                    <label for="emoce5">Soucitná k sobě</label>
+                </li>
+            </ul>
+            
+            <div class="quote-box">
+                <p style="margin: 0;">
+                    Je v pořádku cítit, cokoli cítíš.<br>
+                    <strong>Není to tvoje chyba.<br>
+                    Nikdy to nebyla tvoje chyba.</strong>
+                </p>
+            </div>
+        </section>
+
+        <!-- TLAČÍTKO TISK LEKCE 2 -->
+        <div class="print-section no-print">
+            <h3>✅ Dokončila jsi Lekci 2!</h3>
+            <p style="margin: 15px 0;">Chceš si vytisknout Lekci 2 s tvými odpověďmi?</p>
+            <button class="btn-print" onclick="printSection('lekce2')">
+                🖨️ Vytisknout Lekci 2
+            </button>
+        </div>
+
+        <!-- LEKCE 3 -->
+        <section class="section" id="lekce3">
+            <h2>LEKCE 3: Tvoje nejsilnější hlasy</h2>
+            
+            <!-- AUDIO TLAČÍTKO -->
+            <div style="background: var(--color-pink); padding: 20px; border-radius: 12px; margin: 20px 0; text-align: center;">
+                <p style="margin-bottom: 15px;"><strong>🎧 Nejdřív si pusť audio:</strong></p>
+                <!-- AUDIO LEKCE 3 -->
+                <a href="https://soundcloud.com/katerina-heallo/lekce-3-poznej-sve-hlasy/s-yPU6LcDC0Fy?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing&si=2532d1296d924a4989ff13bb0a95d748" class="btn-print" style="display: inline-flex;" target="_blank">
+                    🎧 Poslechnout Lekci 3
+                </a>
+            </div>
+            
+            <div class="box">
+                <p class="text-center"><strong>Identifikuj své TOP 3 hlasy</strong></p>
+                <p class="text-small text-center">Které hlasy poznáváš nejvíc?</p>
+            </div>
+            
+            <label class="input-label">MOJE TOP 3 HLASY:</label>
+            <input type="text" class="input-field" id="top1" placeholder="1. hlas">
+            <input type="text" class="input-field" id="top2" placeholder="2. hlas">
+            <input type="text" class="input-field" id="top3" placeholder="3. hlas">
+        </section>
+
+        <!-- MAPA HLASU #1 -->
+        <section class="section" id="mapa1">
+            <h2>MAPA HLASU #1</h2>
+            
+            <label class="input-label">JMÉNO HLASU:</label>
+            <input type="text" class="input-field" id="m1-jmeno" placeholder="Např. Utěšitelka">
+            
+            <label class="input-label">KDY SE NEJČASTĚJI OZÝVÁ:</label>
+            <textarea class="input-field" id="m1-kdy" placeholder="Buď konkrétní - jaká situace, čas, místo..."></textarea>
+            
+            <label class="input-label">CO ŘÍKÁ - JEHO OBLÍBENÉ VĚTY:</label>
+            <input type="text" class="input-field" id="m1-veta1" placeholder="1. věta">
+            <input type="text" class="input-field" id="m1-veta2" placeholder="2. věta">
+            <input type="text" class="input-field" id="m1-veta3" placeholder="3. věta">
+            
+            <label class="input-label">ODKUD PŘIŠEL:</label>
+            <textarea class="input-field" id="m1-odkud" placeholder="Dětství? Diety? Vyhoření? Kdy vznikl?"></textarea>
+            
+            <label class="input-label">CO VE SKUTEČNOSTI POTŘEBUJU:</label>
+            <textarea class="input-field" id="m1-potreba" placeholder="Ne jídlo - ale co je pod tím?"></textarea>
+            
+            <label class="input-label">CO MU ŘEKNU PŘÍŠTĚ:</label>
+            <textarea class="input-field" id="m1-odpoved" placeholder="Vytvoř si větu v TVÉM jazyce"></textarea>
+        </section>
+
+        <!-- MAPA HLASU #2 -->
+        <section class="section" id="mapa2">
+            <h2>MAPA HLASU #2</h2>
+            
+            <label class="input-label">JMÉNO HLASU:</label>
+            <input type="text" class="input-field" id="m2-jmeno" placeholder="Např. Vyčerpaná">
+            
+            <label class="input-label">KDY SE NEJČASTĚJI OZÝVÁ:</label>
+            <textarea class="input-field" id="m2-kdy" placeholder="Buď konkrétní - jaká situace, čas, místo..."></textarea>
+            
+            <label class="input-label">CO ŘÍKÁ - JEHO OBLÍBENÉ VĚTY:</label>
+            <input type="text" class="input-field" id="m2-veta1" placeholder="1. věta">
+            <input type="text" class="input-field" id="m2-veta2" placeholder="2. věta">
+            <input type="text" class="input-field" id="m2-veta3" placeholder="3. věta">
+            
+            <label class="input-label">ODKUD PŘIŠEL:</label>
+            <textarea class="input-field" id="m2-odkud" placeholder="Dětství? Diety? Vyhoření? Kdy vznikl?"></textarea>
+            
+            <label class="input-label">CO VE SKUTEČNOSTI POTŘEBUJU:</label>
+            <textarea class="input-field" id="m2-potreba" placeholder="Ne jídlo - ale co je pod tím?"></textarea>
+            
+            <label class="input-label">CO MU ŘEKNU PŘÍŠTĚ:</label>
+            <textarea class="input-field" id="m2-odpoved" placeholder="Vytvoř si větu v TVÉM jazyce"></textarea>
+        </section>
+
+        <!-- MAPA HLASU #3 -->
+        <section class="section" id="mapa3">
+            <h2>MAPA HLASU #3</h2>
+            
+            <label class="input-label">JMÉNO HLASU:</label>
+            <input type="text" class="input-field" id="m3-jmeno" placeholder="Např. Perfekcionistka">
+            
+            <label class="input-label">KDY SE NEJČASTĚJI OZÝVÁ:</label>
+            <textarea class="input-field" id="m3-kdy" placeholder="Buď konkrétní - jaká situace, čas, místo..."></textarea>
+            
+            <label class="input-label">CO ŘÍKÁ - JEHO OBLÍBENÉ VĚTY:</label>
+            <input type="text" class="input-field" id="m3-veta1" placeholder="1. věta">
+            <input type="text" class="input-field" id="m3-veta2" placeholder="2. věta">
+            <input type="text" class="input-field" id="m3-veta3" placeholder="3. věta">
+            
+            <label class="input-label">ODKUD PŘIŠEL:</label>
+            <textarea class="input-field" id="m3-odkud" placeholder="Dětství? Diety? Vyhoření? Kdy vznikl?"></textarea>
+            
+            <label class="input-label">CO VE SKUTEČNOSTI POTŘEBUJU:</label>
+            <textarea class="input-field" id="m3-potreba" placeholder="Ne jídlo - ale co je pod tím?"></textarea>
+            
+            <label class="input-label">CO MU ŘEKNU PŘÍŠTĚ:</label>
+            <textarea class="input-field" id="m3-odpoved" placeholder="Vytvoř si větu v TVÉM jazyce"></textarea>
+        </section>
+
+        <!-- TLAČÍTKO TISK LEKCE 3 + MAPY -->
+        <div class="print-section no-print">
+            <h3>✅ Dokončila jsi Lekci 3 a vytvořila Mapy!</h3>
+            <p style="margin: 15px 0;">Chceš si vytisknout Lekci 3 + své Mapy hlasů?</p>
+            <button class="btn-print" onclick="printSection('lekce3')">
+                🗺️ Vytisknout Lekci 3 + Mapy hlasů
+            </button>
+        </div>
+
+        <!-- GRATULACE -->
+        <section class="section section-intro">
+            <h2>GRATULUJU! 🎉</h2>
+            
+            <p>Právě jsi dokončila program "Proč stojíš u ledničky, i když nejsi hladová?"</p>
+            
+            <div class="box mt-20">
+                <h3>CO TEĎ MÁŠ:</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="padding: 5px 0;">✓ Mapu svých TOP 3 hlasů</li>
+                    <li style="padding: 5px 0;">✓ Porozumění, odkud přišly</li>
+                    <li style="padding: 5px 0;">✓ Věty, co jim říct</li>
+                    <li style="padding: 5px 0;">✓ SOS kartu (níže)</li>
+                </ul>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <h3>CO DÁL?</h3>
+            <p><strong>→ POUŽÍVEJ svou mapu</strong> - Příště, až uslyšíš hlas, vrať se sem</p>
+            <p style="margin-top: 10px;"><strong>→ BUĎ TRPĚLIVÁ</strong> - Změna nepřijde přes noc</p>
+            <p style="margin-top: 10px;"><strong>→ PRAKTIKUJ</strong> - Čím víc pojmenováváš hlasy, tím víc ztrácejí moc</p>
+            
+            <div class="quote-box">
+                <p style="margin: 0;">
+                    Jsem na tebe pyšná.<br>
+                    Jsi odvážná. Jsi na správné cestě.<br><br>
+                    <strong>S láskou, Kateřina</strong>
+                </p>
+            </div>
+        </section>
+
+        <!-- SOS KARTA -->
+        <section class="section" id="sos">
+            <h2>🆘 SOS KARTA</h2>
+            <p class="text-center mb-20">Když slyšíš vnitřní hlas...<br>
+            <span class="text-small">(Vyfoť si nebo vytiskni)</span></p>
+            
+            <div class="sos-grid">
+                <div class="sos-item">
+                    <div class="sos-voice">🌸 UTĚŠITELKA</div>
+                    <div class="sos-response">"Tohle není útěcha - je to znecitlivění. Potřebuju se cítit viděná, ne omámená."</div>
+                </div>
+                
+                <div class="sos-item">
+                    <div class="sos-voice">😴 VYČERPANÁ</div>
+                    <div class="sos-response">"Tohle mě vyčerpá ještě víc. Co by mi DOOPRAVDY pomohlo?"</div>
+                </div>
+                
+                <div class="sos-item">
+                    <div class="sos-voice">💝 OBĚTAVÁ</div>
+                    <div class="sos-response">"Zasloužím si víc než zbytky. Zasloužím si skutečnou péči."</div>
+                </div>
+                
+                <div class="sos-item">
+                    <div class="sos-voice">⚪ PERFEKCIONISTKA</div>
+                    <div class="sos-response">"Můžu začít TEĎ. Ne až od pondělí. Jeden krok mimo není konec."</div>
+                </div>
+                
+                <div class="sos-item">
+                    <div class="sos-voice">🔥 REBELKA</div>
+                    <div class="sos-response">"Tohle není kontrola. Je to naslouchání sobě. A to je obrovský rozdíl."</div>
+                </div>
+                
+                <div class="sos-item">
+                    <div class="sos-voice">🏡 NOSTALGIČKA</div>
+                    <div class="sos-response">"Láska je ve mně, ne v koláčích. Vzpomínky zůstanou i bez jídla."</div>
+                </div>
+                
+                <div class="sos-item">
+                    <div class="sos-voice">🏋️ KOMPENZÁTORKA</div>
+                    <div class="sos-response">"Cvičení není povolenka. Obojí je péče o mé tělo."</div>
+                </div>
+                
+                <div class="sos-item">
+                    <div class="sos-voice">👻 NEVIDITELNÁ</div>
+                    <div class="sos-response">"Můžu jíst na světle. Bez studu. Já za to stojím."</div>
+                </div>
+                
+                <div class="sos-item">
+                    <div class="sos-voice">📊 KALKULAČKA</div>
+                    <div class="sos-response">"Moje tělo není tabulka. Nepotřebuju matiku, potřebuju naslouchat."</div>
+                </div>
+                
+                <div class="sos-item">
+                    <div class="sos-voice">👑 CTNOSTNÁ</div>
+                    <div class="sos-response">"Nejsem pes za poslušnost. Jsem člověk s potřebami po celý den."</div>
+                </div>
+                
+                <div class="sos-item">
+                    <div class="sos-voice">👀 SROVNÁVAČKA</div>
+                    <div class="sos-response">"Jejich tělo není moje tělo. Co potřebuju JÁ?"</div>
+                </div>
+                
+                <div class="sos-item">
+                    <div class="sos-voice">🎂 BABIČČINA DCERA</div>
+                    <div class="sos-response">"Babička by chtěla mé štěstí, ne mé onemocnění."</div>
+                </div>
+                
+                <div class="sos-item">
+                    <div class="sos-voice">🕳️ PRÁZDNÁ</div>
+                    <div class="sos-response">"Jídlo tu díru nezaplní. Možná je čas přiznat, co tam chybí."</div>
+                </div>
+                
+                <div class="sos-item">
+                    <div class="sos-voice">📅 PONDĚLNÍ JÁ</div>
+                    <div class="sos-response">"Pondělí není magický reset. Jediný moment je TEĎ."</div>
+                </div>
+                
+                <div class="sos-item">
+                    <div class="sos-voice">🎪 SLAVNOSTNÍ</div>
+                    <div class="sos-response">"Láska není v koláči. Je v tom, že tu spolu jsme."</div>
+                </div>
+                
+                <div class="sos-item">
+                    <div class="sos-voice">🛡️ OCHRÁNKYNĚ</div>
+                    <div class="sos-response">"Už jsem v bezpečí. Můžu to cítit."</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BONUS CHECKLIST -->
+        <section class="section" id="bonus">
+            <h2>⚡ BONUS: RYCHLÝ TEST</h2>
+            <p class="text-center mb-20">Který hlas právě slyším?</p>
+            
+            <p class="text-small mb-20"><strong>Zaškrtni, co platí TEĎ:</strong></p>
+            
+            <ul class="checkbox-list">
+                <li class="checkbox-item">
+                    <input type="checkbox" id="test1">
+                    <label for="test1">Cítím se smutná/osamělá → <strong>UTĚŠITELKA</strong></label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="test2">
+                    <label for="test2">Jsem hrozně unavená → <strong>VYČERPANÁ</strong></label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="test3">
+                    <label for="test3">Celý den jsem dávala všem → <strong>OBĚTAVÁ</strong></label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="test4">
+                    <label for="test4">"Už jsem to pokazila" → <strong>PERFEKCIONISTKA</strong></label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="test5">
+                    <label for="test5">"Nikdo mi nebude říkat..." → <strong>REBELKA</strong></label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="test6">
+                    <label for="test6">Tohle mi připomíná dětství → <strong>NOSTALGIČKA</strong></label>
+                </li>
+            </ul>
+            
+            <div class="box mt-20">
+                <p class="text-center" style="margin: 0;">
+                    <strong>Poznala jsi svůj hlas?</strong><br>
+                    Teď už víš, co mu říct. ✨
+                </p>
+            </div>
+        </section>
+
+        <!-- TLAČÍTKO TISK SOS + BONUS -->
+        <div class="print-section no-print">
+            <h3>💝 Chceš si vytisknout SOS kartu?</h3>
+            <p style="margin: 15px 0;">Vyfoť si ji nebo vytiskni a nalep na ledničku!</p>
+            <button class="btn-print" onclick="printSection('sos')">
+                🆘 Vytisknout SOS kartu + Bonus
+            </button>
+        </div>
+
+        <!-- KONTAKT -->
+        <section class="section">
+            <h2>TADY PRO TEBE JSEM</h2>
+            
+            <p>Pokud potřebuješ podporu, radu, nebo chceš jít hlouběji:</p>
+            
+            <div class="box mt-20">
+                <p><strong>📧 Email:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d2b9b3a6b7a0bbbcb392bfabbab7b3bebebdfcbbbcb4bd">[email&#160;protected]</a></p>
+                <p style="margin-top: 10px;"><strong>📱 Instagram:</strong> @myheallo</p>
+                <p style="margin-top: 10px;"><strong>🌐 Web:</strong> www.katerinaheallo.com</p>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <h3>DĚKUJU</h3>
+            <p>Děkuju za důvěru. Děkuju za odvahu. Děkuju, že jsi tady.</p>
+            <p style="margin-top: 15px;"><strong>Jsi na správné cestě.</strong></p>
+            <p style="margin-top: 20px;">S láskou a hrdostí,<br><strong>Kateřina</strong></p>
+            
+            <div class="quote-box">
+                <p style="margin: 0;">
+                    <strong>HEALLO®</strong><br>
+                    Somatic Nutrition Therapy®<br><br>
+                    "Tvoje tělo není tvůj nepřítel.<br>
+                    Je to tvůj ochránce."
+                </p>
+            </div>
+        </section>
+
+        <!-- FINÁLNÍ TLAČÍTKO - STÁHNOUT VŠE -->
+        <div class="print-section no-print">
+            <h2>📥 STÁHNOUT CELÝ VYPLNĚNÝ SEŠIT</h2>
+            <p style="margin: 20px 0; font-size: 1.1rem;">Chceš si stáhnout celý sešit s VŠEMI tvými vyplněnými odpověďmi?</p>
+            <button class="btn-print btn-print-secondary" onclick="printSection('all')" style="font-size: 1.2rem; padding: 20px 40px;">
+                📥 Stáhnout celý vyplněný sešit jako PDF
+            </button>
+            <p class="text-small" style="margin-top: 15px; color: var(--color-text-light);">
+                Otevře se dialog pro tisk → Vyber "Uložit jako PDF"
+            </p>
+        </div>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // ===== AUTO-SAVE DO LOCALSTORAGE =====
+        const inputs = document.querySelectorAll('input[type="text"], textarea, input[type="checkbox"]');
+        
+        // Load saved data
+        inputs.forEach(input => {
+            const savedValue = localStorage.getItem(input.id);
+            if (savedValue !== null) {
+                if (input.type === 'checkbox') {
+                    input.checked = savedValue === 'true';
+                } else {
+                    input.value = savedValue;
+                }
+            }
+            
+            // Auto-save on change
+            input.addEventListener('change', () => {
+                if (input.type === 'checkbox') {
+                    localStorage.setItem(input.id, input.checked);
+                } else {
+                    localStorage.setItem(input.id, input.value);
+                }
+                updateProgress();
+            });
+            
+            // Auto-save on input for text fields
+            if (input.type !== 'checkbox') {
+                input.addEventListener('input', () => {
+                    localStorage.setItem(input.id, input.value);
+                    updateProgress();
+                });
+            }
+        });
+        
+        // ===== PROGRESS BAR =====
+        function updateProgress() {
+            const allInputs = document.querySelectorAll('input[type="text"], textarea, input[type="checkbox"]');
+            let filled = 0;
+            
+            allInputs.forEach(input => {
+                if (input.type === 'checkbox') {
+                    if (input.checked) filled++;
+                } else {
+                    if (input.value.trim() !== '') filled++;
+                }
+            });
+            
+            const percentage = Math.round((filled / allInputs.length) * 100);
+            document.getElementById('progressFill').style.width = percentage + '%';
+            document.getElementById('progressPercent').textContent = percentage + '%';
+        }
+        
+        // Initial progress update
+        updateProgress();
+        
+        // ===== PRINT FUNCTIONS =====
+        function printSection(section) {
+            // Add print class to body
+            document.body.classList.add('print-' + section);
+            
+            // Small delay to ensure CSS is applied
+            setTimeout(() => {
+                // Print
+                window.print();
+                
+                // Remove print class after print dialog closes
+                // Longer timeout to ensure dialog had time to appear
+                setTimeout(() => {
+                    document.body.classList.remove('print-' + section);
+                }, 500);
+            }, 100);
+        }
+        
+        // ===== SCROLL ANIMATION =====
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        sections.forEach(section => {
+            section.style.op
