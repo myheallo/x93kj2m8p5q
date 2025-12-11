@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tvůj SOS balíček pro krizové chvíle - Journal | HEALLO®</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #4A1942;
+            --color-secondary: #FF9500;
+            --color-accent: #FFB4A2;
+            --color-bg: #FFF9F5;
+            --color-pink: #FFE5E0;
+            --color-text: #2D2D2D;
+            --color-text-light: #666;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: var(--color-text);
+            line-height: 1.6;
+            background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-pink) 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid var(--color-pink);
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--color-secondary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 12pt;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--color-primary);
+            margin: 15px 0;
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            color: var(--color-primary);
+            margin: 30px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--color-pink);
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: var(--color-primary);
+            margin: 20px 0 15px;
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            color: var(--color-secondary);
+            margin: 15px 0 10px;
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            margin: 40px 0;
+            padding: 30px;
+            background: var(--color-bg);
+            border-radius: 15px;
+        }
+
+        .section-intro {
+            background: linear-gradient(135deg, var(--color-pink) 0%, var(--color-accent) 100%);
+        }
+
+        /* ===== INPUTS ===== */
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 2px solid var(--color-pink);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 11pt;
+            transition: border-color 0.3s;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: var(--color-secondary);
+        }
+
+        textarea.input-field {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .input-label {
+            display: block;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        /* ===== CHECKBOXES ===== */
+        .checkbox-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .checkbox-item:hover {
+            background: rgba(255, 180, 162, 0.1);
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .checkbox-item label {
+            cursor: pointer;
+            flex: 1;
+        }
+
+        /* ===== BOXES ===== */
+        .box {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 2px solid var(--color-pink);
+        }
+
+        .quote-box {
+            background: var(--color-primary);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 30px 0;
+            font-style: italic;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn-print {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--color-secondary);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 20px 10px 20px 0;
+            text-decoration: none;
+        }
+
+        .btn-print:hover {
+            background: #E68600;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 149, 0, 0.3);
+        }
+
+        .btn-print-secondary {
+            background: var(--color-primary);
+        }
+
+        .btn-print-secondary:hover {
+            background: #6B2461;
+        }
+
+        .print-section {
+            text-align: center;
+            padding: 30px;
+            background: var(--color-pink);
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+
+        /* ===== PROGRESS BAR ===== */
+        .progress-container {
+            position: sticky;
+            top: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--color-secondary) 0%, var(--color-accent) 100%);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        /* ===== TABLE ===== */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table th, table td {
+            border: 1px solid var(--color-pink);
+            padding: 12px;
+            text-align: left;
+        }
+
+        table th {
+            background: var(--color-pink);
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+
+        /* ===== DIVIDER ===== */
+        .divider {
+            border-top: 2px solid var(--color-pink);
+            margin: 30px 0;
+        }
+
+        /* ===== UTILITIES ===== */
+        .text-center { text-align: center; }
+        .text-small { font-size: 0.9rem; }
+        .text-italic { font-style: italic; }
+        .mt-20 { margin-top: 20px; }
+        .mb-20 { margin-bottom: 20px; }
+
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 0;
+                margin: 0;
+                max-width: 100%;
+                width: 100%;
+                border: none;
+            }
+
+            .progress-container,
+            .btn-print,
+            .print-section,
+            .no-print {
+                display: none !important;
+            }
+
+            .section {
+                opacity: 1 !important;
+                transform: none !important;
+                page-break-inside: avoid;
+                break-inside: avoid;
+                background: white;
+                border: 1px solid #eee;
+                margin: 10px 0;
+                padding: 10px;
+                display: none;
+            }
+
+            body.print-lekce1 .section { display: none; }
+            body.print-lekce1 #intro,
+            body.print-lekce1 #pred-tim,
+            body.print-lekce1 #lekce1 {
+                display: block !important;
+            }
+
+            body.print-lekce2 .section { display: none; }
+            body.print-lekce2 #lekce2 {
+                display: block !important;
+            }
+
+            body.print-lekce3 .section { display: none; }
+            body.print-lekce3 #lekce3 {
+                display: block !important;
+            }
+
+            body.print-tracker .section { display: none; }
+            body.print-tracker #tracker,
+            body.print-tracker #pokroky {
+                display: block !important;
+            }
+
+            body.print-all .section {
+                display: block !important;
+            }
+
+            * {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            textarea, input {
+                border: 1px solid #ccc;
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .btn-print {
+                width: 100%;
+                justify-content: center;
+            }
+
+            table {
+                font-size: 0.85rem;
+            }
+
+            table th, table td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- PROGRESS BAR -->
+        <div class="progress-container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <span style="font-weight: 600; color: var(--color-primary);">🌸 Můj pokrok:</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-weight: 600; color: var(--color-primary);">📊 Vyplněno:</span>
+                <span id="progressPercent" style="font-size: 1.5rem; font-weight: 700; color: var(--color-secondary);">0%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <!-- HEADER -->
+        <div class="header">
+            <div class="badge">🤍 SOS BALÍČEK</div>
+            <h1>TVŮJ SOS BALÍČEK<br>PRO KRIZOVÉ CHVÍLE</h1>
+            <p style="font-size: 1.2rem; color: var(--color-text-light);">Interaktivní journal pro tvou cestu k vnitřnímu klidu</p>
+            
+            <div style="margin-top: 30px;">
+                <p style="font-size: 1rem; margin-bottom: 10px;">Tento journal patří:</p>
+                <input type="text" class="input-field" id="owner-name" placeholder="Tvoje jméno" style="max-width: 400px; margin: 0 auto;">
+            </div>
+        </div>
+
+        <!-- ÚVODNÍ SLOVO -->
+        <section class="section section-intro" id="intro">
+            <h2>VÍTEJ 🌸</h2>
+            
+            <p>Mám obrovskou radost, že jsi tady.</p>
+            
+            <p style="margin-top: 15px;">To, že jsi otevřela tento journal, znamená, že jsi udělala něco nesmírně odvážného – rozhodla ses najít cestu ven ze spirály viny.</p>
+            
+            <p style="margin-top: 15px;">Tento journal je tvůj osobní průvodce SOS Balíčkem. <strong>Všechno, co sem napíšeš, se uloží automaticky jen do tvého prohlížeče</strong> – nikdo jiný to neuvidí. Je to prostor jen pro tebe.</p>
+            
+            <p style="margin-top: 15px;">Prostor, kde můžeš být upřímná. Kde můžeš pojmenovat to, co dlouho mlčelo. Kde můžeš najít cestu zpátky k sobě – bez posuzování, bez viny.</p>
+            
+            <div class="box mt-20">
+                <h3>JAK S TÍMTO JOURNALEM PRACOVAT:</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="padding: 8px 0;">🎧 <strong>Poslechnout audio</strong> – Nech se vést nahrávkami</li>
+                    <li style="padding: 8px 0;">✍️ <strong>Psát upřímně</strong> – Buď upřímná k sobě</li>
+                    <li style="padding: 8px 0;">💜 <strong>Být laskavá</strong> – Není to o dokonalosti</li>
+                    <li style="padding: 8px 0;">🖨️ <strong>Tisknout po sekcích</strong> – Vytiskni si lekce postupně</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- PŘED TÍM NEŽ ZAČNEŠ -->
+        <section class="section" id="pred-tim">
+            <h2>NEŽ ZAČNEŠ...</h2>
+            
+            <div class="box">
+                <h3>PRAVIDLA PRO PRÁCI S JOURNALEM:</h3>
+                
+                <h4>Pravidlo č. 1: Žádné "správné" odpovědi neexistují</h4>
+                <p>Píšeš pro sebe. Nikdo jiný to neuvidí. Buď brutálně upřímná.</p>
+                
+                <h4>Pravidlo č. 2: Neposuzuj, co píšeš</h4>
+                <p>Hlava ti bude říkat "to je hloupost" nebo "to není dost důležité". Ignoruj ji. Piš dál.</p>
+                
+                <h4>Pravidlo č. 3: Vracej se, kdykoliv potřebuješ</h4>
+                <p>Tohle není "uděláš jednou a máš hotovo". Vracíš se, kolikrát je třeba.</p>
+            </div>
+
+            <div class="box mt-20">
+                <h3>POSTUP:</h3>
+                <p>→ <strong>Postupuj po lekcích</strong> – po každé audio lekci vyplň odpovídající sekci</p>
+                <p style="margin-top: 8px;">→ <strong>Nepospíchej</strong> – někdy stačí jedna otázka denně</p>
+                <p style="margin-top: 8px;">→ <strong>Vracíš se</strong> – za týden, za měsíc – podívej se, co se změnilo</p>
+            </div>
+        </section>
+
+        <!-- REFLEXE PO LEKCI 1 -->
+        <section class="section" id="lekce1">
+            <h2>📍 REFLEXE PO LEKCI 1: "Když už se to stalo"</h2>
+            
+            <div style="background: var(--color-pink); padding: 20px; border-radius: 12px; margin: 20px 0; text-align: center;">
+                <p style="margin-bottom: 15px;"><strong>🎧 Nejdřív si pusť audio:</strong></p>
+                <a href="https://soundcloud.com/katerina-heallo/lekce-1-tvuj-sos-balicek-pro-krizove-chvile/s-NzRhAv40eS5?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing&si=edd79fb07ac94e08b0255d399e4106b6" class="btn-print" style="display: inline-flex;" target="_blank">
+                    🎧 Poslechnout Lekci 1
+                </a>
+                <p class="text-small" style="margin-top: 15px;">Pak se vrať sem a vyplň reflexi.</p>
+            </div>
+
+            <h3>1. CO SE U TEBE DĚJE HNED PO PŘEJÍDÁNÍ?</h3>
+            
+            <label class="input-label">Jak reaguje tvoje hlava?</label>
+            <p class="text-small">(Jaké myšlenky přicházejí? Co si říkáš?)</p>
+            <textarea class="input-field" id="l1-hlava" placeholder="Napiš upřímně, co slyšíš v hlavě hned po přejídání..."></textarea>
+            
+            <label class="input-label">Jak reaguje tvoje tělo?</label>
+            <p class="text-small">(Kde cítíš napětí? Co se děje fyzicky?)</p>
+            <textarea class="input-field" id="l1-telo" placeholder="Sevření v hrudi? Napětí v břiše? Nevolnost?"></textarea>
+
+            <div class="divider"></div>
+
+            <h3>2. MOJE SPIRÁLA VINY ZAČÍNÁ, KDYŽ...</h3>
+            <p class="text-small mb-20">(Doplň – v jaký moment přesně to začíná? Při jídle? Po jídle? Když jdeš spát?)</p>
+            <textarea class="input-field" id="l1-spirala" placeholder="Např.: 'Spirála začíná, když si lehnu do postele a uvědomím si, co jsem zase udělala...'"></textarea>
+
+            <div class="divider"></div>
+
+            <h3>3. CO JSEM SI VZALA Z TECHNIKY "ZASTAVIT LAVINU"?</h3>
+            
+            <p class="text-small mb-20">Která část mi pomohla nejvíc?</p>
+            <ul class="checkbox-list">
+                <li class="checkbox-item">
+                    <input type="checkbox" id="l1-technika1">
+                    <label for="l1-technika1">Přerušit proud myšlenek ("Stop")</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="l1-technika2">
+                    <label for="l1-technika2">Ruce na srdci + dech</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="l1-technika3">
+                    <label for="l1-technika3">Říct si "Jsem v bezpečí"</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="l1-technika4">
+                    <label for="l1-technika4">Pojmenovat emoci</label>
+                </li>
+            </ul>
+
+            <label class="input-label">Co zkusím příště, až to přijde?</label>
+            <textarea class="input-field" id="l1-priste" placeholder="Konkrétní kroky, které zkusím..."></textarea>
+
+            <div class="divider"></div>
+
+            <h3>💭 POZNÁMKY PRO SEBE</h3>
+            <p class="text-small mb-20">Co jsem si všimla? Co mě překvapilo? Co chci zkoušet dál?</p>
+            <textarea class="input-field" id="l1-poznamky" placeholder="Moje poznámky..."></textarea>
+        </section>
+
+        <!-- TISK LEKCE 1 -->
+        <div class="print-section no-print">
+            <h3>✅ Dokončila jsi Lekci 1!</h3>
+            <p style="margin: 15px 0;">Chceš si vytisknout Lekci 1 s tvými odpověďmi?</p>
+            <button class="btn-print" onclick="printSection('lekce1')">
+                🖨️ Vytisknout Lekci 1
+            </button>
+        </div>
+
+        <!-- REFLEXE PO LEKCI 2 -->
+        <section class="section" id="lekce2">
+            <h2>📍 REFLEXE PO LEKCI 2: "Projít emocí"</h2>
+            
+            <div style="background: var(--color-pink); padding: 20px; border-radius: 12px; margin: 20px 0; text-align: center;">
+                <p style="margin-bottom: 15px;"><strong>🎧 Nejdřív si pusť audio:</strong></p>
+                <a href="https://soundcloud.com/katerina-heallo/lekce-2-tvuj-sos-balicek-pro-krizove-chvile/s-bPBXHWnvIwJ?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing&si=8b74b6e4f1f34934aafaf6909e7f8c7f" class="btn-print" style="display: inline-flex;" target="_blank">
+                    🎧 Poslechnout Lekci 2
+                </a>
+                <p class="text-small" style="margin-top: 15px;">Pak se vrať sem a vyplň reflexi.</p>
+            </div>
+
+            <h3>1. MAPOVÁNÍ MÝCH EMOCÍ PŘED PŘEJÍDÁNÍM</h3>
+            
+            <p class="text-small mb-20">Co obvykle cítím PŘED tím, než sáhnu po jídle? (Označ, co rezonuje – můžeš víc)</p>
+            <ul class="checkbox-list">
+                <li class="checkbox-item">
+                    <input type="checkbox" id="l2-emoce1">
+                    <label for="l2-emoce1">Únava</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="l2-emoce2">
+                    <label for="l2-emoce2">Přetížení</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="l2-emoce3">
+                    <label for="l2-emoce3">Prázdnota</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="l2-emoce4">
+                    <label for="l2-emoce4">Osamělost</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="l2-emoce5">
+                    <label for="l2-emoce5">Úzkost/nervozita</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="l2-emoce6">
+                    <label for="l2-emoce6">Zklamání</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="l2-emoce7">
+                    <label for="l2-emoce7">Smutek</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="l2-emoce8">
+                    <label for="l2-emoce8">Vztek (na sebe/ostatní)</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="l2-emoce9">
+                    <label for="l2-emoce9">Nuda</label>
+                </li>
+            </ul>
+
+            <label class="input-label">Jiné emoce:</label>
+            <input type="text" class="input-field" id="l2-emoce-jine" placeholder="Jaké jiné emoce cítím?">
+
+            <div class="divider"></div>
+
+            <h3>2. KDE TO CÍTÍM V TĚLE?</h3>
+            
+            <p class="text-small mb-20">Když přijde ta emoce – kde se ozývá v mém těle?</p>
+            <ul class="checkbox-list">
+                <li class="checkbox-item">
+                    <input type="checkbox" id="l2-telo1">
+                    <label for="l2-telo1">Sevření v hrudi</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="l2-telo2">
+                    <label for="l2-telo2">Napětí v ramenou</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="l2-telo3">
+                    <label for="l2-telo3">Tlak v hlavě</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="l2-telo4">
+                    <label for="l2-telo4">Prázdnota v břiše</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="l2-telo5">
+                    <label for="l2-telo5">Nevolnost</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="l2-telo6">
+                    <label for="l2-telo6">Uzavření hrdla</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="l2-telo7">
+                    <label for="l2-telo7">Napětí v čelisti</label>
+                </li>
+            </ul>
+
+            <label class="input-label">Jiná místa v těle:</label>
+            <input type="text" class="input-field" id="l2-telo-jine" placeholder="Kde ještě to cítím?">
+
+            <div class="divider"></div>
+
+            <h3>3. ZKOUŠÍM SOMATIC TRACKING</h3>
+            
+            <label class="input-label">Co se stalo, když jsem zkusila zůstat s emocí v těle?</label>
+            <textarea class="input-field" id="l2-tracking1" placeholder="Popište svou zkušenost..."></textarea>
+
+            <label class="input-label">Bylo to těžké? Proč?</label>
+            <textarea class="input-field" id="l2-tracking2" placeholder="Co bylo nejtěžší?"></textarea>
+
+            <label class="input-label">Co se změnilo po minutě dýchání?</label>
+            <textarea class="input-field" id="l2-tracking3" placeholder="Uvolnila se emoce? Zesílila? Změnila se?"></textarea>
+
+            <div class="divider"></div>
+
+            <h3>4. CO MÍSTO ÚTĚKU ZKUSÍM PŘÍŠTĚ?</h3>
+            
+            <p class="text-small mb-20">Když přijde ta emoce... co můžu udělat MÍSTO jídla?</p>
+            <input type="text" class="input-field" id="l2-misto1" placeholder="Možnost 1: Např. zavolat kamarádce...">
+            <input type="text" class="input-field" id="l2-misto2" placeholder="Možnost 2: Např. jít na procházku...">
+            <input type="text" class="input-field" id="l2-misto3" placeholder="Možnost 3: Např. napsat si, co cítím...">
+
+            <div class="divider"></div>
+
+            <h3>💭 POZNÁMKY PRO SEBE</h3>
+            <textarea class="input-field" id="l2-poznamky" placeholder="Moje poznámky z lekce 2..."></textarea>
+        </section>
+
+        <!-- TISK LEKCE 2 -->
+        <div class="print-section no-print">
+            <h3>✅ Dokončila jsi Lekci 2!</h3>
+            <p style="margin: 15px 0;">Chceš si vytisknout Lekci 2 s tvými odpověďmi?</p>
+            <button class="btn-print" onclick="printSection('lekce2')">
+                🖨️ Vytisknout Lekci 2
+            </button>
+        </div>
+
+        <!-- REFLEXE PO LEKCI 3 -->
+        <section class="section" id="lekce3">
+            <h2>📍 REFLEXE PO LEKCI 3: "Začít další den"</h2>
+            
+            <div style="background: var(--color-pink); padding: 20px; border-radius: 12px; margin: 20px 0; text-align: center;">
+                <p style="margin-bottom: 15px;"><strong>🎧 Nejdřív si pusť audio:</strong></p>
+                <a href="https://soundcloud.com/katerina-heallo/lekce-3-tvuj-sos-balicek-pro-krizove-chvile/s-2GGv3u2Oziv?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing&si=f310089b85ee4efda2a5e3d5bb523da0" class="btn-print" style="display: inline-flex;" target="_blank">
+                    🎧 Poslechnout Lekci 3
+                </a>
+                <p class="text-small" style="margin-top: 15px;">Pak se vrať sem a vyplň reflexi.</p>
+            </div>
+
+            <h3>1. MŮJ VZTAH S "OD ZÍTŘKA"</h3>
+            
+            <p class="text-small mb-20">Jak často říkám "od zítřka to bude jinak"?</p>
+            <ul class="checkbox-list">
+                <li class="checkbox-item">
+                    <input type="checkbox" id="l3-castost1">
+                    <label for="l3-castost1">Každý den</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="l3-castost2">
+                    <label for="l3-castost2">Několikrát týdně</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="l3-castost3">
+                    <label for="l3-castost3">Po každém "selhání"</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="l3-castost4">
+                    <label for="l3-castost4">Už to neříkám</label>
+                </li>
+            </ul>
+
+            <p class="text-small mb-20">Co mi tahle věta přináší?</p>
+            <ul class="checkbox-list">
+                <li class="checkbox-item">
+                    <input type="checkbox" id="l3-prinasi1">
+                    <label for="l3-prinasi1">Naději</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="l3-prinasi2">
+                    <label for="l3-prinasi2">Tlak</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="l3-prinasi3">
+                    <label for="l3-prinasi3">Pocit, že dneska už je "prohra"</label>
+                </li>
+                <li class="checkbox-item">
+                    <input type="checkbox" id="l3-prinasi4">
+                    <label for="l3-prinasi4">Další cyklus viny</label>
+                </li>
+            </ul>
+
+            <div class="divider"></div>
+
+            <h3>2. VEČERNÍ REFLEXE MÍSTO POSUZOVÁNÍ</h3>
+            
+            <p class="text-small mb-20">Místo "proč jsem to zase udělala" se ptám:</p>
+            
+            <label class="input-label">"Co se dělo předtím?"</label>
+            <textarea class="input-field" id="l3-predtim" placeholder="Co se dělo v mém životě/dni předtím, než jsem sáhla po jídle?"></textarea>
+
+            <label class="input-label">"Co jsem potřebovala?"</label>
+            <textarea class="input-field" id="l3-potreba" placeholder="Co jsem ve skutečnosti potřebovala?"></textarea>
+
+            <label class="input-label">"Co bych příště mohla zkusit?"</label>
+            <textarea class="input-field" id="l3-priste" placeholder="Jaké možnosti mám příště vyzkoušet?"></textarea>
+
+            <div class="divider"></div>
+
+            <h3>3. MOJE RANNÍ INTENTION</h3>
+            
+            <p class="text-small mb-20">Co si řeknu ráno místo "dneska to zvládnu"?</p>
+            
+            <label class="input-label">Můj nový ranní intention:</label>
+            <p class="text-small">Příklady: "Dneska si všimnu, co cítím" / "Dneska se zeptám, co potřebuju" / "Dneska budu k sobě laskavá"</p>
+            <input type="text" class="input-field" id="l3-intention" placeholder="Dneska...">
+
+            <div class="divider"></div>
+
+            <h3>4. CO KDYŽ SE TO STEJNĚ STANE?</h3>
+            
+            <p class="text-small mb-20">Jak se k sobě postavím, když se to příště stane?</p>
+            
+            <label class="input-label">Místo: "Jsem selhání"</label>
+            <input type="text" class="input-field" id="l3-misto1" placeholder="→ Řeknu si:">
+
+            <label class="input-label">Místo: "Proč jsem to zase udělala?"</label>
+            <input type="text" class="input-field" id="l3-misto2" placeholder="→ Řeknu si:">
+
+            <label class="input-label">Místo: "Od zítřka začnu znovu"</label>
+            <input type="text" class="input-field" id="l3-misto3" placeholder="→ Řeknu si:">
+
+            <div class="divider"></div>
+
+            <h3>💭 POZNÁMKY PRO SEBE</h3>
+            <textarea class="input-field" id="l3-poznamky" placeholder="Moje poznámky z lekce 3..."></textarea>
+        </section>
+
+        <!-- TISK LEKCE 3 -->
+        <div class="print-section no-print">
+            <h3>✅ Dokončila jsi Lekci 3!</h3>
+            <p style="margin: 15px 0;">Chceš si vytisknout Lekci 3 s tvými odpověďmi?</p>
+            <button class="btn-print" onclick="printSection('lekce3')">
+                🖨️ Vytisknout Lekci 3
+            </button>
+        </div>
+
+        <!-- TÝDENNÍ TRACKER -->
+        <section class="section" id="tracker">
+            <h2>📊 SLEDOVÁNÍ EMOCÍ - 7 DNÍ</h2>
+            
+            <p class="text-small mb-20">Každý den si všímej: Co jsem cítila? Kdy to bylo nejsilnější? Co jsem udělala?</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Den</th>
+                        <th>Emoce, kterou jsem cítila</th>
+                        <th>Kde v těle?</th>
+                        <th>Co jsem udělala?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Po</strong></td>
+                        <td><input type="text" class="input-field" id="tracker-po-emoce" placeholder="Únava, smutek..."></td>
+                        <td><input type="text" class="input-field" id="tracker-po-telo" placeholder="Hruď, břicho..."></td>
+                        <td><input type="text" class="input-field" id="tracker-po-akce" placeholder="Co jsem udělala?"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Út</strong></td>
+                        <td><input type="text" class="input-field" id="tracker-ut-emoce"></td>
+                        <td><input type="text" class="input-field" id="tracker-ut-telo"></td>
+                        <td><input type="text" class="input-field" id="tracker-ut-akce"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>St</strong></td>
+                        <td><input type="text" class="input-field" id="tracker-st-emoce"></td>
+                        <td><input type="text" class="input-field" id="tracker-st-telo"></td>
+                        <td><input type="text" class="input-field" id="tracker-st-akce"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Čt</strong></td>
+                        <td><input type="text" class="input-field" id="tracker-ct-emoce"></td>
+                        <td><input type="text" class="input-field" id="tracker-ct-telo"></td>
+                        <td><input type="text" class="input-field" id="tracker-ct-akce"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pá</strong></td>
+                        <td><input type="text" class="input-field" id="tracker-pa-emoce"></td>
+                        <td><input type="text" class="input-field" id="tracker-pa-telo"></td>
+                        <td><input type="text" class="input-field" id="tracker-pa-akce"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>So</strong></td>
+                        <td><input type="text" class="input-field" id="tracker-so-emoce"></td>
+                        <td><input type="text" class="input-field" id="tracker-so-telo"></td>
+                        <td><input type="text" class="input-field" id="tracker-so-akce"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ne</strong></td>
+                        <td><input type="text" class="input-field" id="tracker-ne-emoce"></td>
+                        <td><input type="text" class="input-field" id="tracker-ne-telo"></td>
+                        <td><input type="text" class="input-field" id="tracker-ne-akce"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="divider"></div>
+
+            <h3>CO JSEM SI VŠIMLA?</h3>
+            <textarea class="input-field" id="tracker-vsimnout" placeholder="Jaké vzorce se opakují? Co jsem objevila?"></textarea>
+
+            <label class="input-label">Vracející se vzorec?</label>
+            <textarea class="input-field" id="tracker-vzorec" placeholder="Je nějaká emoce nebo situace, která se opakuje?"></textarea>
+        </section>
+
+        <!-- MOJE POKROKY -->
+        <section class="section" id="pokroky">
+            <h2>✨ CO SE ZMĚNILO</h2>
+            
+            <p class="text-small mb-20">Po týdnu / měsíci práce s SOS Balíčkem</p>
+            
+            <h3>CO UŽ UMÍM, CO JSEM PŘEDTÍM NEUMĚLA?</h3>
+            <input type="text" class="input-field" id="pokrok1" placeholder="→ Např.: Umím zastavit spirálu viny...">
+            <input type="text" class="input-field" id="pokrok2" placeholder="→ ">
+            <input type="text" class="input-field" id="pokrok3" placeholder="→ ">
+
+            <label class="input-label">Jaký moment byl pro mě "aha" chvílí?</label>
+            <textarea class="input-field" id="pokrok-aha" placeholder="Co mě překvapilo? Co jsem si uvědomila?"></textarea>
+
+            <label class="input-label">Co je pořád těžké a potřebuje víc času?</label>
+            <textarea class="input-field" id="pokrok-tezke" placeholder="Kde je to pořád náročné?"></textarea>
+
+            <label class="input-label">Jsem na sebe pyšná, protože...</label>
+            <textarea class="input-field" id="pokrok-pysna" placeholder="Za co sama sebe chválím?"></textarea>
+        </section>
+
+        <!-- TISK TRACKER + POKROKY -->
+        <div class="print-section no-print">
+            <h3>📊 Chceš si vytisknout Tracker a Pokroky?</h3>
+            <p style="margin: 15px 0;">Vytiskni si svůj týdenní tracker a reflexi pokroku.</p>
+            <button class="btn-print" onclick="printSection('tracker')">
+                🖨️ Vytisknout Tracker + Pokroky
+            </button>
+        </div>
+
+        <!-- ZÁVĚR -->
+        <section class="section section-intro">
+            <h2>💙 POSLEDNÍ SLOVO K TOBĚ</h2>
+            
+            <p>Toto není konec.<br>Je to začátek cesty, na které se učíš něčemu úplně novému:</p>
+            
+            <p style="margin-top: 20px; font-size: 1.3rem; font-weight: 600; color: var(--color-primary);">
+                <strong>Zastavit spirálu viny a být k sobě laskavá.</strong>
+            </p>
+            
+            <p style="margin-top: 20px;">Nebude to vždy jít.<br>Budou dny, kdy se vrátíš do starých vzorců.<br>A to je v pořádku.</p>
+            
+            <p style="margin-top: 20px;">Protože tohle není o dokonalosti.<br><strong>Je to o postupných krocích zpátky k sobě.</strong></p>
+            
+            <p style="margin-top: 20px;">Kdykoliv budeš potřebovat, vrať se k těmto lekcím.<br>Vracíš se, kolikrát je třeba.</p>
+            
+            <div class="quote-box">
+                <p style="margin: 0;">
+                    Nejsi sama.<br>
+                    Nejsi divná.<br><br>
+                    <strong>Jsi statečná žena, která se učí jiný způsob.</strong><br><br>
+                    A to je to nejdůležitější.
+                </p>
+            </div>
+            
+            <p style="text-align: center; margin-top: 30px; font-size: 1.1rem;">
+                <strong>Katy | HEALLO®</strong><br>
+                <span style="font-size: 0.9rem; color: var(--color-text-light);">Somatic Nutrition Therapy®</span>
+            </p>
+        </section>
+
+        <!-- FINÁLNÍ TISK - VŠECHNO -->
+        <div class="print-section no-print">
+            <h2>📥 STÁHNOUT CELÝ VYPLNĚNÝ JOURNAL</h2>
+            <p style="margin: 20px 0; font-size: 1.1rem;">Chceš si stáhnout celý journal s VŠEMI tvými vyplněnými odpověďmi?</p>
+            <button class="btn-print btn-print-secondary" onclick="printSection('all')" style="font-size: 1.2rem; padding: 20px 40px;">
+                📥 Stáhnout celý vyplněný journal jako PDF
+            </button>
+            <p class="text-small" style="margin-top: 15px; color: var(--color-text-light);">
+                Otevře se dialog pro tisk → Vyber "Uložit jako PDF"
+            </p>
+        </div>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // ===== AUTO-SAVE DO LOCALSTORAGE =====
+        const inputs = document.querySelectorAll('input[type="text"], textarea, input[type="checkbox"]');
+        
+        // Load saved data
+        inputs.forEach(input => {
+            const savedValue = localStorage.getItem(input.id);
+            if (savedValue !== null) {
+                if (input.type === 'checkbox') {
+                    input.checked = savedValue === 'true';
+                } else {
+                    input.value = savedValue;
+                }
+            }
+            
+            // Auto-save on change
+            input.addEventListener('change', () => {
+                if (input.type === 'checkbox') {
+                    localStorage.setItem(input.id, input.checked);
+                } else {
+                    localStorage.setItem(input.id, input.value);
+                }
+                updateProgress();
+            });
+            
+            // Auto-save on input for text fields
+            if (input.type !== 'checkbox') {
+                input.addEventListener('input', () => {
+                    localStorage.setItem(input.id, input.value);
+                    updateProgress();
+                });
+            }
+        });
+        
+        // ===== PROGRESS BAR =====
+        function updateProgress() {
+            const allInputs = document.querySelectorAll('input[type="text"], textarea, input[type="checkbox"]');
+            let filled = 0;
+            
+            allInputs.forEach(input => {
+                if (input.type === 'checkbox') {
+                    if (input.checked) filled++;
+                } else {
+                    if (input.value.trim() !== '') filled++;
+                }
+            });
+            
+            const percentage = Math.round((filled / allInputs.length) * 100);
+            const progressFill = document.getElementById('progressFill');
+            const progressPercent = document.getElementById('progressPercent');
+            
+            if (progressFill) progressFill.style.width = percentage + '%';
+            if (progressPercent) progressPercent.textContent = percentage + '%';
+        }
+        
+        // Initial progress update
+        updateProgress();
+        
+        // ===== PRINT FUNCTIONS =====
+        function printSection(section) {
+            // Add print class to body
+            document.body.classList.add('print-' + section);
+            
+            // Small delay to ensure CSS is applied
+            setTimeout(() => {
+                // Print
+                window.print();
+                
+                // Remove print class after print dialog closes
+                setTimeout(() => {
+                    document.body.classList.remove('print-' + section);
+                }, 1000);
+            }, 200);
+        }
+        
+        // ===== SCROLL ANIMATION =====
+        const sections = document.querySelectorAll('.section');
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                observer.observe(section);
+            });
+        } else {
+            // Fallback for browsers without IntersectionObserver
+            sections.forEach(section => {
+                section.style.opacity = '1';
+                section.style.transform = 'none';
+            });
+        }
+    </script>
+</body>
+</html>
