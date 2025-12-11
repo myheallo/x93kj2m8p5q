@@ -323,16 +323,21 @@
         .mt-20 { margin-top: 20px; }
         .mb-20 { margin-bottom: 20px; }
 
-        /* ===== PRINT STYLES ===== */
+        /* ===== PRINT STYLES - CRITICAL FIX ===== */
         @media print {
             body {
                 background: white;
                 padding: 0;
+                margin: 0;
             }
 
             .container {
                 box-shadow: none;
-                padding: 20px;
+                padding: 0;
+                margin: 0;
+                max-width: 100%;
+                width: 100%;
+                border: none;
             }
 
             /* Hide UI elements when printing */
@@ -343,32 +348,37 @@
                 display: none !important;
             }
 
+            /* CRITICAL FIX FOR BLANK PAGES:
+               Override the JS animation opacity/transform.
+               Ensure sections are visible, opaque, and don't break awkwardly.
+            */
             .section {
+                opacity: 1 !important;
+                transform: none !important;
                 page-break-inside: avoid;
+                break-inside: avoid;
                 background: white;
+                border: 1px solid #eee; /* Light border for readability in print */
+                margin: 10px 0;
+                padding: 10px;
+                display: none; /* Hide by default, show specific ones below */
             }
 
-            /* Print only specific sections */
-            body.print-lekce1 .section {
-                display: none;
-            }
+            /* Print only specific sections based on class */
+            body.print-lekce1 .section { display: none; }
             body.print-lekce1 #intro,
             body.print-lekce1 #hlasy,
             body.print-lekce1 #lekce1 {
                 display: block !important;
             }
 
-            body.print-lekce2 .section {
-                display: none;
-            }
+            body.print-lekce2 .section { display: none; }
             body.print-lekce2 #lekce2-detstvo,
             body.print-lekce2 #lekce2-dospelost {
                 display: block !important;
             }
 
-            body.print-lekce3 .section {
-                display: none;
-            }
+            body.print-lekce3 .section { display: none; }
             body.print-lekce3 #lekce3,
             body.print-lekce3 #mapa1,
             body.print-lekce3 #mapa2,
@@ -376,15 +386,13 @@
                 display: block !important;
             }
 
-            body.print-sos .section {
-                display: none;
-            }
+            body.print-sos .section { display: none; }
             body.print-sos #sos,
             body.print-sos #bonus {
                 display: block !important;
             }
 
-            /* Print all - hide only no-print elements */
+            /* Print all */
             body.print-all .section {
                 display: block !important;
             }
@@ -392,6 +400,11 @@
             * {
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
+            }
+            
+            /* Ensure inputs are readable */
+            textarea, input {
+                border: 1px solid #ccc;
             }
         }
 
@@ -1140,8 +1153,11 @@
             });
             
             const percentage = Math.round((filled / allInputs.length) * 100);
-            document.getElementById('progressFill').style.width = percentage + '%';
-            document.getElementById('progressPercent').textContent = percentage + '%';
+            const progressFill = document.getElementById('progressFill');
+            const progressPercent = document.getElementById('progressPercent');
+            
+            if (progressFill) progressFill.style.width = percentage + '%';
+            if (progressPercent) progressPercent.textContent = percentage + '%';
         }
         
         // Initial progress update
@@ -1158,30 +1174,37 @@
                 window.print();
                 
                 // Remove print class after print dialog closes
-                // Longer timeout to ensure dialog had time to appear
                 setTimeout(() => {
                     document.body.classList.remove('print-' + section);
-                }, 500);
-            }, 100);
+                }, 1000);
+            }, 200);
         }
         
         // ===== SCROLL ANIMATION =====
         const sections = document.querySelectorAll('.section');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                observer.observe(section);
             });
-        }, { threshold: 0.1 });
-        
-        sections.forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-            observer.observe(section);
-        });
+        } else {
+            // Fallback for browsers without IntersectionObserver
+            sections.forEach(section => {
+                section.style.opacity = '1';
+                section.style.transform = 'none';
+            });
+        }
     </script>
 </body>
 </html>
